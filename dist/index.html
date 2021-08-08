@@ -7,24 +7,66 @@
   </head>
   <body>
     <nav>
+      <button class="toggle">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="page-title">
         <h1>TO DO <i class="far fa-check-circle"></i></h1>
       </div>
       <button class="login">login</button>
     </nav>
+    
     <div class="content">
-      <div class="center-content">
-        <button class="project-item new_item">
-          <i class="fas fa-plus"></i>
+      <div class="sidebar ">
+        <button class="section-name add-btn">
+          <p><i class="fas fa-plus"></i> Add section</p> 
         </button>
-        <button class="project-item">
-          <h1>todaydfkj</h1>
-        </button>
-        <button class="project-item">
-        </button>
-        <button class="project-item">
+        <button class="section-name">
+          <p>dasjdimae</p>
         </button>
       </div>
+      <div class="resize "></div>
+      <div class="list-board">
+        
+      </div>
+    </div>
+
+    <div class="popup">
+      <div class="popup-text">
+        <h1>Create new Project</h1>
+        <table>
+          <tr>
+            <th>Name of project:</th>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" required="" id="name">
+            </td>
+          </tr>
+          <tr>
+            <th>Description:</th>
+          </tr>
+          <tr>
+            <td>
+              <textarea name="" id="description" cols="30" rows="8"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="create-project">Create</button>
+            </td>
+          </tr>
+        </table>
+        <button class="close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="alert">
+      <p></p>
+      <button class="close-alert">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
     <script src="main.js"></script>
   </body>
