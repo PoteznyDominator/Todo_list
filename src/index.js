@@ -1,5 +1,5 @@
 import './style.css';
-import new_project from './js/create_project';
+import project_object from './js/project';
 const add_btn = document.querySelector(".add-btn");
 
 add_btn.addEventListener('click',() => {
@@ -28,11 +28,30 @@ alert_box_close.addEventListener('click',() => {
   alert_box.classList.remove('move');
 })
 
+//adding element to projects sidebar
+const name_input = document.querySelector("#name");
+const description_input = document.querySelector("#description");
+let projects_array = [];
 //maybe in future make some async from this.
 submit_btn.addEventListener('click',() => {
-  new_project();
+  let name = name_input.value;
+  let desc = description_input.value;
+  if(name !== "" && !projects_array.some(project => project.name === name)){
+    name_input.value = "";
+    description_input.value = "";
+    let project = new project_object(name, desc);
+    projects_array.push(project);
+  } else if(projects_array.some(project => project.name === name)) {
+    alert_box.classList.add('move');
+    alert_box.getElementsByTagName('p')[0].innerHTML = "This project already exist.";
+  } else {
+    alert_box.classList.add('move');
+    alert_box.getElementsByTagName('p')[0].innerHTML = "Name can't be empty";
+  }
 });
 /**************************************/
+
+
 
 /**************************************/
 //sidebar resize

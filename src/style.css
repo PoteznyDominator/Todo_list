@@ -95,11 +95,16 @@ button{
   flex-grow: 1;
   min-height: 85vh;
   min-width: 300px;
+  padding: 50px;
 }
 .hide{
   transform: translate(-100%, 0);
   position: absolute;
 }
+.name, .desc{
+  margin: 0 0 5px 0;
+}
+
 
 .section-name{
   border: none;
