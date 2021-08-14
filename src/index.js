@@ -33,20 +33,12 @@ const name_input = document.querySelector("#name");
 const description_input = document.querySelector("#description");
 let projects_array = [];
 //maybe in future make some async from this.
-submit_btn.addEventListener('click',() => {
-  let name = name_input.value;
-  let desc = description_input.value;
-  if(name !== "" && !projects_array.some(project => project.name === name)){
-    name_input.value = "";
-    description_input.value = "";
-    let project = new project_object(name, desc);
-    projects_array.push(project);
-  } else if(projects_array.some(project => project.name === name)) {
-    alert_box.classList.add('move');
-    alert_box.getElementsByTagName('p')[0].innerHTML = "This project already exist.";
-  } else {
-    alert_box.classList.add('move');
-    alert_box.getElementsByTagName('p')[0].innerHTML = "Name can't be empty";
+submit_btn.addEventListener('click',()=>{
+  createSection();
+});
+name_input.addEventListener('keypress', (e) => {
+  if(e.key === "Enter") {
+    createSection();
   }
 });
 /**************************************/
@@ -90,3 +82,20 @@ toggle.addEventListener('click', () =>{
 })
 
 /**************************************/
+
+function createSection() {
+  let name = name_input.value;
+  let desc = description_input.value;
+  if(name !== "" && !projects_array.some(project => project.name === name)){
+    name_input.value = "";
+    description_input.value = "";
+    let project = new project_object(name, desc);
+    projects_array.push(project);
+  } else if(projects_array.some(project => project.name === name)) {
+    alert_box.classList.add('move');
+    alert_box.getElementsByTagName('p')[0].innerHTML = "This project already exist.";
+  } else {
+    alert_box.classList.add('move');
+    alert_box.getElementsByTagName('p')[0].innerHTML = "Name can't be empty";
+  }
+}

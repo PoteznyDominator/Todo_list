@@ -1,5 +1,5 @@
 
-const parrent_node = document.querySelector(".sidebar");
+const sidebar_node = document.querySelector(".sidebar");
 const popup =  document.querySelector(".popup");
 const board = document.querySelector(".list-board");
 
@@ -14,7 +14,7 @@ export default class project_object {
     <button class="section-name ${name_class}">
     <p>${this.name}</p>
     </button>`;
-    parrent_node.insertAdjacentHTML('beforeend',project_item);
+    sidebar_node.insertAdjacentHTML('beforeend',project_item);
     popup.classList.remove('active');
     document.body.style.overflow = "visible";
     const project_sideBar = document.querySelector(`.${name_class}`);
@@ -28,12 +28,15 @@ export default class project_object {
     });
   }
 
-  show_project(){
+  show_project() {
     board.innerHTML = "";
     const project_wall = `
+    <button class="edit-btn"><i class="far fa-edit"></i></button>
+    <button class="delete-btn"><i class="fas fa-times"></i></button>
     <h1 class="name">${this.name}</h1>
     <p class="desc">${this.desc}</p>
-    <hr>`;
+    <hr>
+    <button class="add-ToDo"><i class="fas fa-plus"></i> Create new</button>`;
     board.insertAdjacentHTML("beforeend", project_wall);
   }
 }
